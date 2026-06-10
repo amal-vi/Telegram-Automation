@@ -1,0 +1,38 @@
+# Environment files (highly sensitive, containing API credentials)
+.env
+config.yaml
+
+# Telegram session files (highly sensitive, containing authorization keys)
+*.session
+*.session-journal
+backend/*.session
+backend/*.session-journal
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+backend/*.db
+
+# Python virtual environment & cache
+.venv/
+venv/
+ENV/
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# Node modules & builds
+node_modules/
+dist/
+.eslintcache
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db

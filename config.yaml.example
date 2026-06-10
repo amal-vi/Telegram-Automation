@@ -1,0 +1,37 @@
+# Telegram API Credentials
+# Alternatively, set TELEGRAM_API_ID and TELEGRAM_API_HASH in a .env file
+# api_id: 123456
+# api_hash: "abcdef0123456789abcdef0123456789"
+# phone: "+1234567890"
+
+# Gemini API key (optional fallback for LLM classification)
+# Alternatively, set GEMINI_API_KEY in a .env file
+# gemini_api_key: "AIzaSy..."
+
+# Core settings
+spam_threshold_leave: 80
+spam_threshold_archive: 60
+spam_threshold_mute: 40
+
+# Safety Controls
+dry_run: true                 # If true, actions will only be simulated and logged
+human_approval_mode: true    # If true, prompts for user confirmation before taking any action
+max_leaves_per_day: 10        # Maximum groups to leave within 24 hours
+cooldown_seconds: 10          # Seconds to wait between destructive actions (e.g. leave)
+scan_interval_minutes: 30     # Frequency of scan when running in daemon mode
+message_sample_size: 100      # Number of recent messages to analyze per group
+
+# Database configurations
+db_path: "spam_agent.db"
+
+# Whitelist: Matches group IDs (e.g. -100123456789), usernames (e.g. "my_friend_group"), or substrings in title (e.g. "Work")
+whitelist:
+  - "Work"
+  - "Family"
+  - "Telethon"
+  - "my_trusted_channel"
+
+# Blacklist: Instantly triggers "leave" action regardless of spam score
+blacklist:
+  - "crypto_pump_spam_group"
+  - "casino_spam_bot_room"
