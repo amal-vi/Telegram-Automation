@@ -26,6 +26,55 @@ An intelligent, self-hosted companion designed to clean up and manage noisy Tele
 
 ---
 
+## 📁 Project Structure
+
+```text
+Telegram-Automation/
+├── backend/
+│   ├── app/
+│   │   ├── analyzer.py       # Rule-based and Gemini LLM spam evaluation
+│   │   ├── cli.py            # Command Line Interface operations
+│   │   ├── client_manager.py # Manages Telethon Telegram clients
+│   │   ├── config.py         # Config loader (from env or YAML file)
+│   │   ├── database.py       # SQLAlchemy database setup and SQLite session storage
+│   │   ├── executor.py       # Execution logic for chat actions (mute, archive, leave)
+│   │   ├── main.py           # FastAPI application & endpoints definition
+│   │   ├── policy_engine.py  # Automation policies (auto-whitelist, auto-mute rules)
+│   │   ├── scanner.py        # Group/channel message scanning logic
+│   │   ├── schemas.py        # Pydantic schemas for data serialization/validation
+│   │   └── scheduler.py      # Background task scheduling for automated scans
+│   ├── Dockerfile            # Python environment container definition
+│   └── requirements.txt      # Python backend library dependencies
+├── frontend/
+│   ├── public/               # Static assets (icons, tab graphics)
+│   ├── src/
+│   │   ├── assets/           # Dashboard graphics and CSS files
+│   │   ├── pages/            # App view components
+│   │   │   ├── ActivityLogs.tsx   # History of spam scanning actions
+│   │   │   ├── Dashboard.tsx      # Overview, stats, and high-level health
+│   │   │   ├── Groups.tsx         # Scan target groups/channels manager
+│   │   │   ├── InboxCleanup.tsx   # Inbox spam processing page
+│   │   │   ├── Login.tsx          # Telegram auth and verification page
+│   │   │   ├── ReviewQueue.tsx    # Borderline items waiting for user approval
+│   │   │   └── Settings.tsx       # Policies, whitelists, and configurations
+│   │   ├── store/
+│   │   │   └── useAgentStore.ts  # Zustand global state management
+│   │   ├── utils/
+│   │   │   └── date.ts            # Date-formatting utility functions
+│   │   ├── App.tsx           # Router and main layout shell
+│   │   └── main.tsx          # React application entry point
+│   ├── Dockerfile            # Node frontend development environment container
+│   ├── package.json          # Vite & Node package dependencies
+│   ├── tailwind.config.js    # Tailwind layout customizations
+│   └── vite.config.ts        # Vite tool compilation rules
+├── docker-compose.yml        # Config to orchestrate multi-container service execution
+├── config.yaml.example       # Example file for local/native configs
+├── .gitignore                # Specified files ignored in version control
+└── README.md                 # Project README file
+```
+
+---
+
 ## ⚙️ Configuration & Quick Start
 
 Other users can run this project with Docker, but they still need their own Telegram credentials.
